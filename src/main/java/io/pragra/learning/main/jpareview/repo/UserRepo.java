@@ -1,2 +1,17 @@
-package io.pragra.learning.main.jpareview.repo;public interface UserRepo {
+package io.pragra.learning.main.jpareview.repo;
+
+import io.pragra.learning.main.jpareview.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+@Repository
+public interface UserRepo extends JpaRepository<User,Long> {
+   // List<User> findAllByLastName(String lastName);
+    @Query("SELECT u from User u WHERE upper(u.lastName)like %:lastName%")
+    List<User>findAllCustom(@Param("lastName")String lastName);
+@Query(value = "SELECT count (*) from TABLE_USER",nativeQuery = true)
+    int getAllUserCount();
 }

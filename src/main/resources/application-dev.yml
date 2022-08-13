@@ -1,0 +1,12 @@
+spring:
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+  datasource:
+    url: jdbc:h2:./appdb
+    username: sa
+    password:
+  jpa:
+    hibernate:
+    show-sql: true
