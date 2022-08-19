@@ -9,4 +9,5 @@ spring:
     password:
   jpa:
     hibernate:
+      ddl-auto: validate
     show-sql: true

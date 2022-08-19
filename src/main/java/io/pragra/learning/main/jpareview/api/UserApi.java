@@ -1,16 +1,19 @@
 package io.pragra.learning.main.jpareview.api;
 
+import io.pragra.learning.main.jpareview.dtos.GitHubUser;
 import io.pragra.learning.main.jpareview.entity.User;
 import io.pragra.learning.main.jpareview.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api")
 public class UserApi {
     private final UserService service;
 @PostMapping("/user")
@@ -44,6 +47,16 @@ public class UserApi {
     }
     @GetMapping("/count")
     public Map<String,Integer>getAll(){
+
     return service.getAllUser();
+    }
+
+@GetMapping("/user/github/{login}")
+    public GitHubUser getUser(@PathVariable("login")String login){
+    return this.service.getGitHubUser(login);
+    }
+    @PostMapping("/user/github")
+    public Map<String,String> getUser(@RequestBody()User user) throws URISyntaxException{
+        return this.service.doPost(user);
     }
 }

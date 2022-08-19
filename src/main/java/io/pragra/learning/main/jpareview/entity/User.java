@@ -18,7 +18,6 @@ public class User {
 @Column(name="LAST_NAME")
     private String lastName;
 
-
     @Transient
     private String secretName;
 

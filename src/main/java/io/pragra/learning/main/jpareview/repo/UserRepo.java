@@ -14,4 +14,7 @@ public interface UserRepo extends JpaRepository<User,Long> {
     List<User>findAllCustom(@Param("lastName")String lastName);
 @Query(value = "SELECT count (*) from TABLE_USER",nativeQuery = true)
     int getAllUserCount();
+
+    @Query("SELECT u from User u WHERE upper(u.lastName)like %:lastName%")
+    User getCustomUser(@Param("lastName")String user);
 }

@@ -29,12 +29,15 @@ public class ReviewService {
 
     }
     public Review upDateReview(Review review){
+
         return  repo.save(review);
     }
     public List<Review> getAll(){
+
         return repo.findAll();
     }
     public Optional<Review> getById(long id){
+
         return repo.findById(id);
     }
     //public void deleteById(long id){
