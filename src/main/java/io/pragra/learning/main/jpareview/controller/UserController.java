@@ -18,6 +18,9 @@ public class UserController {
         GitHubUser gitHubUser = this.service.getGitHubUser(login);
         model.addAttribute("gitHubUser",gitHubUser);
         model.addAttribute("title","Welcome to GitHub"+login);
+        System.out.println("print");
         return "githubuser";
+
     }
+
 }
