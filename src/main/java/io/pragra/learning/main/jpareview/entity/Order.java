@@ -29,4 +29,6 @@ public class Order {
     private Instant createDate = Instant.now();
    // @Builder.Default()
     private Instant updateDate = Instant.now();
+
+
 }

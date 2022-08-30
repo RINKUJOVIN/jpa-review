@@ -17,4 +17,5 @@ public interface UserRepo extends JpaRepository<User,Long> {
 
     @Query("SELECT u from User u WHERE upper(u.lastName)like %:lastName%")
     User getCustomUser(@Param("lastName")String user);
+
 }
