@@ -17,6 +17,8 @@ public class ReviewService {
     private final ReviewRepo repo;
 
     public Review createReview(Review review,long userId) {
+        System.out.println("nimisha added print msg");
+
         Optional<User> userOptional = service.getById(userId);
         Review out = null;
         if (userOptional.isPresent()) {
