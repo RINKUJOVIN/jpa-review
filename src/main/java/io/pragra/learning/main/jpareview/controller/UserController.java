@@ -19,6 +19,8 @@ public class UserController {
         model.addAttribute("gitHubUser",gitHubUser);
         model.addAttribute("title","Welcome to GitHub"+login);
         System.out.println("print");
+        System.out.println("print1");
+
         return "githubuser";
 
     }
